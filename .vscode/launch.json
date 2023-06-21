@@ -5,13 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Dad Joke Paste",
+            "name": "Poke Api",
             "type": "python",
             "request": "launch",
-            "program": "dad_joke_paste.py",
+            "program": "poke_api.py",
             "console": "integratedTerminal",
             "justMyCode": true,
-            "args": "computer"
+            "args": ["charmander"]
         }
     ]
 }
