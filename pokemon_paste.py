@@ -29,6 +29,9 @@ def get_pokemon_name():
         str: Pokemon name
     """
     # TODO: Function body
+    params = {
+        
+    }
     return
 
 def get_paste_data(pokemon_info):
@@ -41,8 +44,14 @@ def get_paste_data(pokemon_info):
         (str, str): Title and body text for the PasteBin paste
     """    
     # TODO: Build the paste title
+    searched_pokemon = pokemon_info['searched_pokemon'].lower()
+    title = f'Information about {searched_pokemon}'
+
     # TODO: Build the paste body text
-    return # (title, body_text)
+    body_text = ''
+    for pokemon in pokemon_info['results']:
+        body_text += pokemon['pokemon'] + '\n\n'
+    return  (title, body_text)
 
 if __name__ == '__main__':
     main()
