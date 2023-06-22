@@ -52,7 +52,7 @@ def get_paste_data(pokemon_info):
     body_text = ''
     for pokemon in pokemon_info['abilities']:
         body_text += '-' + pokemon['ability']['name'] + '\n'
-    return  (title, body_text[:-2])
+    return  (title, body_text)
 
 if __name__ == '__main__':
     main()
