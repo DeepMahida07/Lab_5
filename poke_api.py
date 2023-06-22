@@ -9,7 +9,9 @@ POKE_API_URL = 'https://pokeapi.co/api/v2/pokemon/'
 def main():
     # Test out the get_pokemon_info() function
     # Use breakpoints to view returned dictionary
-    poke_info = get_pokemon_info("Rockruff")
+    poke_info = get_pokemon_info("charmander")
+    for p in ['results']:
+        print(p['name'])
     return
 
 def get_pokemon_info(pokemon_name):
@@ -22,20 +24,20 @@ def get_pokemon_info(pokemon_name):
         dict: Dictionary of Pokemon information, if successful. Otherwise None.
     """
     # TODO: Clean the Pokemon name parameter
-    search_pokemon_name = str(search_pokemon_name).strip().lower()
+    pokemon_name = str(pokemon_name).strip().lower()
 
     pokemon_header = {
         'Accept' : 'application/json'
     }
 
     # TODO: Build a clean URL and use it to send a GET request
-    print(f'Searching for my favourite {search_pokemon_name}.')
-    pokemon_URL = POKE_API_URL + search_pokemon_name
+    print(f'Geting information about {pokemon_name}....', end = '')
+    pokemon_URL = POKE_API_URL + pokemon_name
     resp_msg = requests.get(pokemon_URL, headers=pokemon_header)
 
     # TODO: If the GET request was successful, convert the JSON-formatted message body text to a dictionary and return it
     if resp_msg.status_code == requests.codes.ok:
-        print('Successful')
+        print('Success')
         return resp_msg.json()
     
     # TODO: If the GET request failed, print the error reason and return None
